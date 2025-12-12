@@ -1,0 +1,89 @@
+
+$color-primary-dark: #331e36;
+$color-primary: #41337a;
+$color-primary-light: #5a4a8f;
+$color-primary-lighter: #7361a4;
+
+$color-accent: #6ea4bf;
+$color-accent-light: #8bb8d0;
+$color-accent-lighter: #a8cce1;
+$color-accent-dark: #5a8fa8;
+
+$color-light-cyan: #c2efeb;
+$color-light-mint: #ecfee8;
+$color-light-cyan-dark: #a8d9d5;
+$color-light-mint-dark: #d4f5d0;
+
+$color-neutral-dark: #2a1a2b;
+$color-neutral: #4a4a4a;
+$color-neutral-light: #e5e5e5;
+$color-neutral-lighter: #f5f5f5;
+$color-neutral-lightest: #fafafa;
+
+$color-background: #ffffff;
+$color-background-alt: $color-light-mint;
+$color-background-dark: $color-primary-dark;
+
+$color-text: $color-primary-dark;
+$color-text-light: $color-primary;
+$color-text-muted: $color-neutral;
+$color-text-inverse: #ffffff;
+
+$color-border: $color-light-cyan-dark;
+$color-border-light: $color-light-cyan;
+$color-border-dark: $color-primary;
+
+$color-link: $color-accent;
+$color-link-hover: $color-accent-dark;
+$color-focus: $color-accent-light;
+
+$color-success: #4a8f5a;
+$color-warning: #bfa46e;
+$color-error: #bf6e6e;
+$color-info: $color-accent;
+
+:root {
+  --color-primary-dark: #{$color-primary-dark};
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-primary-lighter: #{$color-primary-lighter};
+  
+  --color-accent: #{$color-accent};
+  --color-accent-light: #{$color-accent-light};
+  --color-accent-lighter: #{$color-accent-lighter};
+  --color-accent-dark: #{$color-accent-dark};
+  
+  --color-light-cyan: #{$color-light-cyan};
+  --color-light-mint: #{$color-light-mint};
+  --color-light-cyan-dark: #{$color-light-cyan-dark};
+  --color-light-mint-dark: #{$color-light-mint-dark};
+  
+  --color-neutral-dark: #{$color-neutral-dark};
+  --color-neutral: #{$color-neutral};
+  --color-neutral-light: #{$color-neutral-light};
+  --color-neutral-lighter: #{$color-neutral-lighter};
+  --color-neutral-lightest: #{$color-neutral-lightest};
+  
+  --color-background: #{$color-background};
+  --color-background-alt: #{$color-background-alt};
+  --color-background-dark: #{$color-background-dark};
+  
+  --color-text: #{$color-text};
+  --color-text-light: #{$color-text-light};
+  --color-text-muted: #{$color-text-muted};
+  --color-text-inverse: #{$color-text-inverse};
+  
+  --color-border: #{$color-border};
+  --color-border-light: #{$color-border-light};
+  --color-border-dark: #{$color-border-dark};
+  
+  --color-link: #{$color-link};
+  --color-link-hover: #{$color-link-hover};
+  --color-focus: #{$color-focus};
+  
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-error: #{$color-error};
+  --color-info: #{$color-info};
+}
+
