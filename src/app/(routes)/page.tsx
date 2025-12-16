@@ -1,10 +1,11 @@
-import { Calendar } from "@/components";
+import { getAllDays } from "@/api/api";
+import { MainPage } from "./MainPage";
 
 
-export default function Home() {
+export default async function Home() {
+  const days = await getAllDays();
+  
   return (
-  <>
-  <Calendar/>
-  </>
+    <MainPage days={days}/>
   );
 }

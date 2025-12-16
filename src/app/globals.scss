@@ -8,4 +8,18 @@ body {
   * {
     box-sizing: border-box;
   }
+
+  .rdp-chevron {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+  }
+  .rdp-today {
+    color: var(--color-primary) !important;
+    font-weight: 700 !important;
+  }
+
+  .rdp-selected .rdp-day_button {
+border-color: var(--color-primary) !important;
+  }
+  
 }
