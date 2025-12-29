@@ -10,16 +10,16 @@ body {
   }
 
   .rdp-chevron {
-    fill: var(--color-primary);
-    stroke: var(--color-primary);
+    fill: var(--color-complementary);
+    stroke: var(--color-complementary);
   }
+  
   .rdp-today {
-    color: var(--color-primary) !important;
+    color: var(--color-complementary) !important;
     font-weight: 700 !important;
   }
 
   .rdp-selected .rdp-day_button {
-border-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
   }
-  
 }

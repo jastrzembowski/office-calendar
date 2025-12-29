@@ -1,5 +1,6 @@
-import { Slot, SlotStatus } from "@/models";
 import { SectionWrapper } from "../sectionWrapper";
+import { Slot, SlotStatus } from "@/models";
+
 import styles from "./styles.module.scss";
 
 interface SlotSelectorProps {
@@ -14,12 +15,13 @@ export const SlotSelector = ({
   onSelectSlot,
 }: SlotSelectorProps) => {
 
+  console.log(slots)
 const filteredSlots = slots?.filter((slot) => slot.status === SlotStatus.AVAILABLE);
 
   return (
     <SectionWrapper title="Wybierz godzinę">
       <div className={styles.slots}>
-        {slots?.length === 0 && (
+        {filteredSlots?.length === 0 && (
           <p className={styles.noSlots}>Brak dostępnych godzin</p>
         )}
         {filteredSlots?.map((slot) => (

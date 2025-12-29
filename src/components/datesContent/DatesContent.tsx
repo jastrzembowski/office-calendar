@@ -1,18 +1,34 @@
 "use client";
 
-import { useState } from "react";
-import { Day, Slot } from "@/models";
-import { Calendar, SectionWrapper, Button, SlotSelector } from "@/components";
-import styles from "./styles.module.scss";
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
 import "dayjs/locale/pl";
+import utc from "dayjs/plugin/utc";
+
+import { Button, Calendar, SectionWrapper, SlotSelector } from "@/components";
+import { Day, Slot } from "@/models";
+
+import styles from "./styles.module.scss";
+
 dayjs.extend(utc);
 dayjs.locale("pl");
 
-export const DatesContent = ({ days }: { days: Day[] }) => {
-  const [selectedDate, setSelectedDate] = useState<Date>();
-  const [selectedSlot, setSelectedSlot] = useState<Slot>();
+interface DatesContentProps {
+  days: Day[];
+  selectedDate: Date | undefined;
+  selectedSlot: Slot | undefined;
+  setSelectedDate: (date: Date | undefined) => void;
+  setSelectedSlot: (slot: Slot | undefined) => void;
+  handleNextStep: () => void;
+}
+
+export const DatesContent = ({
+  days,
+  selectedDate,
+  selectedSlot,
+  setSelectedDate,
+  setSelectedSlot,
+  handleNextStep,
+}: DatesContentProps) => {
   const handleSelectDate = (date: Date | undefined) => {
     setSelectedDate(date);
     setSelectedSlot(undefined);
@@ -23,14 +39,10 @@ export const DatesContent = ({ days }: { days: Day[] }) => {
   };
 
   const availableSlots = selectedDate
-    ? days.find((day) =>
-        dayjs.utc(day.date).isSame(dayjs(selectedDate).utc(), "day")
-      )?.slots
+    ? days.find((day) => dayjs(day.date).isSame(dayjs(selectedDate), "day"))
+        ?.slots
     : [];
 
-  const handleNext = () => {
-    console.log("Rezerwuj");
-  };
   return (
     <>
       <Calendar
@@ -56,7 +68,7 @@ export const DatesContent = ({ days }: { days: Day[] }) => {
         </p>
       </SectionWrapper>
 
-      <Button onClick={handleNext} disabled={!selectedSlot}>
+      <Button onClick={handleNextStep} disabled={!selectedSlot}>
         Kolejny krok
       </Button>
     </>

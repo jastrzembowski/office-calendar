@@ -1,8 +1,9 @@
 import { Metadata } from "next";
-
 import { Playfair_Display } from "next/font/google";
-import "./globals.scss";
+
 import { Navbar, Wrapper } from "@/components";
+
+import "./globals.scss";
 
 const playfair = Playfair_Display({
   weight: ["400", "700", "900"],

@@ -1,7 +1,7 @@
 export enum SlotStatus {
-  AVAILABLE = "available",
-  BOOKED = "booked",
-  CANCELLED = "cancelled",
+  AVAILABLE = "AVAILABLE",
+  BOOKED = "BOOKED",
+  CANCELLED = "CANCELLED",
 }
 
 export interface Day {

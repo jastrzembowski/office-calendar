@@ -2,9 +2,10 @@ import styles from "./styles.module.scss";
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   className?: string; 
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button = ({
@@ -12,12 +13,14 @@ export const Button = ({
   onClick,
   disabled,
   className,
+  type = "button",
 }: ButtonProps) => {
   return (
     <button
       className={`${styles.button} ${className}`}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       {children}
     </button>
