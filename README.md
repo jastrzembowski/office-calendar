@@ -1,36 +1,183 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Office Calendar Booking System
+
+A modern, full-featured office appointment booking system built with Next.js, React, and TypeScript. This application allows users to book visits for various administrative services and provides an admin dashboard for managing appointments.
+
+## Features
+
+### Public Booking System
+- **Multi-step booking process** with a visual stepper
+  - Step 1: Date and time slot selection
+  - Step 2: Personal information collection
+  - Step 3: Booking confirmation
+  - Step 4: Success page
+- **Interactive calendar** for date selection
+- **Time slot selection** with availability status
+- **Service type selection** (ID card, residential registration, vehicle registration, voting registration)
+- **Form validation** for user data
+- **Visit cancellation** via unique cancellation links
+
+### Admin Dashboard
+- **Admin authentication** with session management
+- **Dashboard overview** of all visits
+- **Visit management** with filtering capabilities
+- **Day management**:
+  - Open/close days
+  - Block/unblock time slots
+- **Visit cancellation** from admin panel
+- **Date range filtering** for viewing visits
+
+## Tech Stack
+
+- **Framework**: Next.js 16.0.10
+- **UI Library**: React 19.2.1
+- **Language**: TypeScript 5
+- **Styling**: SCSS (Sass)
+- **Date Handling**: dayjs, react-day-picker
+- **Notifications**: react-toastify
+- **Build Tool**: Webpack (with Turbopack support)
+- **SVG Handling**: @svgr/webpack
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (v18 or higher)
+- Yarn package manager
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd office-calendar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn build
+yarn start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+office-calendar/
+├── src/
+│   ├── app/                    # Next.js app directory
+│   │   ├── (routes)/          # Route groups
+│   │   │   ├── admin/         # Admin pages
+│   │   │   ├── cancel/        # Visit cancellation pages
+│   │   │   └── MainPage.tsx   # Main booking page
+│   │   ├── api/               # API routes
+│   │   │   ├── admin/         # Admin API endpoints
+│   │   │   └── auth/          # Authentication endpoints
+│   │   └── pages/             # Booking flow pages
+│   ├── components/            # Reusable React components
+│   ├── models/                # TypeScript type definitions
+│   ├── api/                   # API client utilities
+│   ├── hooks/                 # Custom React hooks
+│   └── utils/                 # Utility functions
+├── public/                    # Static assets
+└── styles/                    # Global styles
+```
 
-## Deploy on Vercel
+## API Endpoints
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Public Endpoints
+- `GET /public/days` - Get all available days
+- `GET /public/days/:day` - Get specific day details
+- `POST /public/visits` - Book a visit
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Visit Management
+- `GET /visits/:day/visits` - Get visits for a specific day
+- `POST /visits/:visitId/cancel` - Cancel a visit
+
+### Admin Endpoints
+- `POST /auth/login` - Admin login
+- `POST /auth/logout` - Admin logout
+- `POST /admin/days/:day/close` - Close a day
+- `POST /admin/days/:day/open` - Open a day
+- `POST /admin/days/:day/slots/block` - Block time slots
+- `POST /admin/days/:day/slots/unblock` - Unblock time slots
+- `GET /admin/getReservedVisits` - Get all reserved visits
+
+## Visit Types
+
+The system supports the following visit types:
+- **ID Card** (Wyrobienie dowodu osobistego)
+- **Residential Registration** (Meldunek)
+- **Vehicle Registration** (Rejestracja Pojazdu)
+- **Voting Registration** (Zapisanie do spisu wyborczego)
+
+## Slot Status
+
+Time slots can have the following statuses:
+- `AVAILABLE` - Available for booking
+- `BOOKED` - Already booked
+- `CANCELLED` - Cancelled
+- `BLOCKED` - Blocked by admin
+- `RESERVED` - Reserved by a user
+
+## Development
+
+### Available Scripts
+
+- `yarn dev` - Start development server with webpack
+- `yarn build` - Build for production
+- `yarn start` - Start production server
+- `yarn lint` - Run ESLint
+
+### Code Style
+
+The project uses ESLint with Next.js configuration. Make sure to run the linter before committing:
+
+```bash
+yarn lint
+```
+
+## Features in Detail
+
+### Booking Flow
+
+1. **Date Selection**: Users select an available date from the calendar
+2. **Time Slot Selection**: Users choose from available time slots for the selected date
+3. **Personal Information**: Users fill in their details (name, surname, email, phone, service type)
+4. **Confirmation**: Review booking details before submission
+5. **Success**: Confirmation page with booking details
+
+### Admin Features
+
+- View all reserved visits with filtering options
+- Filter by date range
+- Cancel visits
+- Manage day availability (open/close)
+- Block or unblock specific time slots
+- Secure admin authentication
+
+## Configuration
+
+The project uses Next.js configuration with:
+- React Compiler enabled
+- Custom webpack configuration for SVG handling
+- Turbopack support
+
+## License
+
+This project is private and proprietary.
+
+## Contributing
+
+This is a private project. For any issues or questions, please contact the project maintainers.

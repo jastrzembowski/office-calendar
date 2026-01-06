@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const response = await adminLogin(email, password);
 
   if (response.success) {
-    const token = response.data.accessToken;
+    const token = response.data?.accessToken;
 
     const res = NextResponse.json({ ok: true });
     res.cookies.set("session", token, {
