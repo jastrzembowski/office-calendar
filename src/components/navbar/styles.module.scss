@@ -7,11 +7,15 @@
   top: 0;
   z-index: 100;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .navbarTitle {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   font-family: var(--font-serif);
   margin: 0;
+  justify-self: flex-start;
   color: var(--color-text-inverse);
 }

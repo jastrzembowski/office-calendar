@@ -1,0 +1,27 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--color-border);
+} 
+.table th {
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    text-align: left;
+}
+.table td {
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    text-align: left;
+}
+.button {
+    width: fit-content;
+}
+
+.noVisits {
+    font-size: 16px;
+    font-family: var(--font-serif);
+    color: var(--color-text-muted);
+    text-align: center;
+    text-wrap: nowrap;
+    padding: 36px;
+}

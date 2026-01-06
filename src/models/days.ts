@@ -8,6 +8,7 @@ export interface Day {
   id: string;
   date: string;
   full: boolean;
+  blocked: boolean;
   slots: Slot[];
 }
 

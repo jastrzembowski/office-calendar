@@ -15,6 +15,8 @@ $color-info: #6ea4bf;
 $color-info-hover: #5a8fa8;
 $color-alert: #ff9800;
 $color-alert-hover: #f57c00;
+$color-success: #16a34a;
+$color-success-hover: #15803d;
 
 $color-white: #ffffff;
 $color-black: #000000;
@@ -43,6 +45,8 @@ $color-border: #e0e0e0;
   --color-info-hover: #{$color-info-hover};
   --color-alert: #{$color-alert};
   --color-alert-hover: #{$color-alert-hover};
+  --color-success: #{$color-success};
+  --color-success-hover: #{$color-success-hover};
   
   --color-white: #{$color-white};
   --color-black: #{$color-black};

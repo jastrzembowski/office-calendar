@@ -16,20 +16,25 @@ interface CalendarProps {
   days: Day[];
   selectedDate?: Date;
   onSelectDate: (date: Date | undefined) => void;
+  className?: string;
+  isAdmin?: boolean;
 }
 
 export const Calendar = ({
   days,
   selectedDate,
   onSelectDate,
+  className,
+  isAdmin = false,
 }: CalendarProps) => {
-
-  const availableDates = days
-    .filter((day) => day.full === false)
-    .map((day) => dayjs(day.date).toDate());
+  const availableDates = isAdmin
+    ? days.map((day) => dayjs(day.date).toDate())
+    : days
+        .filter((day) => day.full === false)
+        .map((day) => dayjs(day.date).toDate());
 
   return (
-    <SectionWrapper title="Wybierz datę">
+    <SectionWrapper title="Wybierz datę" className={className}>
       <DayPicker
         className={styles.calendarPicker}
         animate

@@ -5,8 +5,8 @@ interface InputProps {
   placeholder: string;
   value: string | undefined;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error: string;
-  showErrors: boolean;
+  error?: string;
+  showErrors?: boolean;
   maxLength?: number;
 }
 

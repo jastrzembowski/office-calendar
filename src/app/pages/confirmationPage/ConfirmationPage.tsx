@@ -5,12 +5,14 @@ import { Button, SectionWrapper } from "@/components";
 import { Slot, User } from "@/models";
 
 import styles from "./styles.module.scss";
+import { showToast } from "@/utils/showToast";
 
 interface ConfirmationPageProps {
   data: User;
   slot: Slot;
   date: Date;
   handlePreviousStep: () => void;
+  handleNextStep: () => void;
 }
 
 export const ConfirmationPage = ({
@@ -18,18 +20,26 @@ export const ConfirmationPage = ({
   slot,
   date,
   handlePreviousStep,
+  handleNextStep,
 }: ConfirmationPageProps) => {
   const handleConfirm = async () => {
-    const response = await bookVisit({
-      time: slot.startTime,
-      date: date.toISOString(),
-      firstName: data.name,
-      lastName: data.surname,
-      phoneNumber: data.phone,
-      email: data.email,
-      visitType: data.type,
-    });
-    console.log(response);
+    try {
+      const response = await bookVisit({
+        date: dayjs(date).format("YYYY-MM-DD"),
+        time: slot.startTime,
+        firstName: data.name,
+        lastName: data.surname,
+        email: data.email,
+        phoneNumber: data.phone,
+        visitType: data.type,
+      });
+      if (response.id) {
+        handleNextStep();
+        showToast("success", "Rezerwacja została zarejestrowana pomyślnie");
+      }
+    } catch (error) {
+      showToast("error", "Wystąpił błąd podczas rezerwacji");
+    }
   };
   return (
     <SectionWrapper title="Potwierdzenie rezerwacji" isStrong>

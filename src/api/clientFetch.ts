@@ -3,12 +3,12 @@ export const clientFetch = async (url: string, options: RequestInit = {}) => {
     ...options,
     headers: {
       "Content-Type": "application/json",
+      ...options.headers,
     },
   });
-
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  return response.json();
+  return response;
 };

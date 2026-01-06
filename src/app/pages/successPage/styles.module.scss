@@ -1,0 +1,38 @@
+.successPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.successTitle {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: var(--font-serif);
+    color: var(--color-text);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.successSubtitle {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: var(--font-serif); 
+    color: var(--color-text);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.successTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--color-border);
+
+    td {
+        padding: 12px;
+        border: 1px solid var(--color-border);
+    }
+}

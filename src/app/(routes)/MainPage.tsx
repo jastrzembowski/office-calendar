@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Stepper, Wrapper } from "@/components";
 import { Day, Slot, User, VisitType } from "@/models";
 
-import { BookingInfoPage, ConfirmationPage, PersonalDataPage } from "../pages";
+import { BookingInfoPage, ConfirmationPage, PersonalDataPage, SuccessPage } from "../pages";
 
 const isCompleteUser = (user: User): boolean => {
   return (
@@ -22,19 +22,22 @@ interface MainPageProps {
   days: Day[];
 }
 
+const initialFormData: User = {
+  name: "",
+  surname: "",
+  email: "",
+  phone: "",
+  emailConfirm: "",
+  type: VisitType.ID_CARD,
+};
+
+
 export const MainPage = ({ days }: MainPageProps) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [selectedSlot, setSelectedSlot] = useState<Slot>();
   const [currentStep, setCurrentStep] = useState(0);
 
-  const [formData, setFormData] = useState<User>({
-    name: "",
-    surname: "",
-    email: "",
-    phone: "",
-    emailConfirm: "",
-    type: VisitType.ID_CARD,
-  });
+  const [formData, setFormData] = useState<User>(initialFormData);
   const handleNextStep = () => {
     setCurrentStep((prev) => prev + 1);
   };
@@ -42,6 +45,15 @@ export const MainPage = ({ days }: MainPageProps) => {
   const handlePreviousStep = () => {
     setCurrentStep((prev) => prev - 1);
   };
+
+const handleReset = () => {
+  setSelectedDate(undefined);
+  setSelectedSlot(undefined);
+  setCurrentStep(0);
+  setFormData({
+    ...initialFormData,
+  });
+};
 
   return (
     <Wrapper>
@@ -75,6 +87,15 @@ export const MainPage = ({ days }: MainPageProps) => {
         selectedDate && (
           <ConfirmationPage
             handlePreviousStep={handlePreviousStep}
+            handleNextStep={handleNextStep}
+            data={formData}
+            slot={selectedSlot}
+            date={selectedDate}
+          />
+        )}
+        {currentStep === 3 && (
+          <SuccessPage
+            handleReset={handleReset}
             data={formData}
             slot={selectedSlot}
             date={selectedDate}

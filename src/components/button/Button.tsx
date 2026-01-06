@@ -1,11 +1,13 @@
+import clsx from "clsx";
 import styles from "./styles.module.scss";
 
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
-  className?: string; 
+  className?: string;   
   type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "tertiary"
 }
 
 export const Button = ({
@@ -14,10 +16,11 @@ export const Button = ({
   disabled,
   className,
   type = "button",
+  variant = "primary",
 }: ButtonProps) => {
   return (
     <button
-      className={`${styles.button} ${className}`}
+      className={clsx(styles.button, styles[variant], className)}
       onClick={onClick}
       disabled={disabled}
       type={type}

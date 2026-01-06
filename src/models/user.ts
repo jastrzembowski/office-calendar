@@ -6,10 +6,10 @@ export enum VisitType {
 }   
 
 export interface User {
-  name: string;
-  surname: string;
-  email: string;
-  phone: string;
-  emailConfirm: string;
-  type: VisitType;
+  name?: string;
+  surname?: string;
+  email?: string;
+  phone?: string;
+  emailConfirm?: string;
+  type?: VisitType;
 }

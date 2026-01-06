@@ -23,3 +23,35 @@ body {
     border-color: var(--color-primary) !important;
   }
 }
+.Toastify__toast--success {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+}
+
+.Toastify__toast--error {
+  background: var(--color-error);
+  color: var(--color-text-inverse);
+}
+
+.Toastify__toast--info {
+  background: var(--color-info);
+  color: var(--color-text-inverse);
+}
+
+.Toastify__toast--warning {
+  background: var(--color-alert);
+  color: var(--color-text);
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.Toastify__toast {
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.Toastify__progress-bar {
+  height: 3px;
+}

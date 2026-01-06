@@ -2,6 +2,11 @@ import { useMemo } from "react";
 
 import { User } from "@/models/user";
 
+
+export const validateEmail = (email: string) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
 export const useValidate = (formData: User) => {
   const errors = useMemo(() => {
     const newErrors = {

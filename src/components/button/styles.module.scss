@@ -17,6 +17,21 @@
     color: var(--color-disabled-text);
     cursor: not-allowed;
   }
+}
 
+.secondary {
+  background-color: var(--color-complementary);
+  &:hover {
+    background-color: var(--color-complementary-hover);
+  }
+}
 
+.tertiary {
+  background-color: transparent;
+  color: var(--color-text);
+  width: fit-content;
+  border: none;
+  &:hover {
+    background-color: var(--color-background-alt);
+  }
 }

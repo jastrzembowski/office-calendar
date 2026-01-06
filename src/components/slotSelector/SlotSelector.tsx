@@ -15,7 +15,6 @@ export const SlotSelector = ({
   onSelectSlot,
 }: SlotSelectorProps) => {
 
-  console.log(slots)
 const filteredSlots = slots?.filter((slot) => slot.status === SlotStatus.AVAILABLE);
 
   return (
