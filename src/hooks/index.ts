@@ -1,1 +1,1 @@
-export { useValidate } from "./useValidate";
+export { useValidate, validateEmail } from "./useValidate";
