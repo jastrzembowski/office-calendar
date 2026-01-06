@@ -1,1 +1,1 @@
-export * from "./BookingInfoPage";
+export { BookingInfoPage } from "./BookingInfoPage";

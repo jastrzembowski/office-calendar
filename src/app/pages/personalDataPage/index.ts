@@ -1,2 +1,1 @@
-export * from "./PersonalDataPage";
-    
+export { PersonalDataPage } from "./PersonalDataPage";

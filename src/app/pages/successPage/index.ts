@@ -1,1 +1,1 @@
-export * from "./SuccessPage";
+export { SuccessPage } from "./SuccessPage";
