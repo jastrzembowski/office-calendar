@@ -1,6 +1,6 @@
 "use client";
 
-import { SectionWrapper } from "../sectionWrapper";
+import { SectionWrapper } from "@/components";
 import { Slot, SlotStatus } from "@/models";
 
 import styles from "./styles.module.scss";

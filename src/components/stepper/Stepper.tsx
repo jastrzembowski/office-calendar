@@ -1,5 +1,5 @@
-import { Line } from "./line";
-import { Step } from "./step";
+import { Line } from "./line/Line";
+import { Step } from "./step/Step";
 
 import styles from "./styles.module.scss";
 

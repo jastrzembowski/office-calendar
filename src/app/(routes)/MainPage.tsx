@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Stepper, Wrapper } from "@/components";
 import { Day, Slot, User, VisitType } from "@/models";
 
-import { BookingInfoPage, ConfirmationPage, PersonalDataPage, SuccessPage } from "../pages";
+import {
+  BookingInfoPage,
+  ConfirmationPage,
+  PersonalDataPage,
+  SuccessPage,
+} from "../pages";
+import { getAllDays } from "@/api/api";
+import { showToast } from "@/utils/showToast";
 
 const isCompleteUser = (user: User): boolean => {
   return (
@@ -18,10 +25,6 @@ const isCompleteUser = (user: User): boolean => {
   );
 };
 
-interface MainPageProps {
-  days: Day[];
-}
-
 const initialFormData: User = {
   name: "",
   surname: "",
@@ -31,11 +34,23 @@ const initialFormData: User = {
   type: VisitType.ID_CARD,
 };
 
-
-export const MainPage = ({ days }: MainPageProps) => {
+export const MainPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [selectedSlot, setSelectedSlot] = useState<Slot>();
   const [currentStep, setCurrentStep] = useState(0);
+  const [days, setDays] = useState<Day[]>([]);
+
+  useEffect(() => {
+    const fetchDays = async () => {
+      const days = await getAllDays();
+      if (days) {
+        setDays(days);
+      } else {
+        showToast("error", "Coś poszło nie tak");
+      }
+    };
+    fetchDays();
+  }, []);
 
   const [formData, setFormData] = useState<User>(initialFormData);
   const handleNextStep = () => {
@@ -46,14 +61,14 @@ export const MainPage = ({ days }: MainPageProps) => {
     setCurrentStep((prev) => prev - 1);
   };
 
-const handleReset = () => {
-  setSelectedDate(undefined);
-  setSelectedSlot(undefined);
-  setCurrentStep(0);
-  setFormData({
-    ...initialFormData,
-  });
-};
+  const handleReset = () => {
+    setSelectedDate(undefined);
+    setSelectedSlot(undefined);
+    setCurrentStep(0);
+    setFormData({
+      ...initialFormData,
+    });
+  };
 
   return (
     <Wrapper>
@@ -93,14 +108,14 @@ const handleReset = () => {
             date={selectedDate}
           />
         )}
-        {currentStep === 3 && (
-          <SuccessPage
-            handleReset={handleReset}
-            data={formData}
-            slot={selectedSlot}
-            date={selectedDate}
-          />
-        )}
+      {currentStep === 3 && (
+        <SuccessPage
+          handleReset={handleReset}
+          data={formData}
+          slot={selectedSlot}
+          date={selectedDate}
+        />
+      )}
     </Wrapper>
   );
 };

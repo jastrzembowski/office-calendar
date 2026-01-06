@@ -1,4 +1,4 @@
-import { SectionWrapper } from "../sectionWrapper";
+import { SectionWrapper } from "@/components";
 
 import styles from "./styles.module.scss";
 
