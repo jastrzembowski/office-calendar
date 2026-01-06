@@ -1,1 +1,1 @@
-export * from "./useValidate";
+export { useValidate } from "./useValidate";

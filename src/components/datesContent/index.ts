@@ -1,1 +1,1 @@
-export * from "./DatesContent"; 
+export { DatesContent } from "./DatesContent"; 

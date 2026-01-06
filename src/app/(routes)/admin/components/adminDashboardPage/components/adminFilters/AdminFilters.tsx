@@ -1,3 +1,5 @@
+"use client";
+
 import {useRouter, useSearchParams } from "next/navigation";
 import styles from "./styles.module.scss";
 import { Button } from "@/components";

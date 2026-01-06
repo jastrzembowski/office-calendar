@@ -1,4 +1,4 @@
-export * from "./bookingInfoPage";
-export * from "./personalDataPage";
-export * from "./confirmationPage"; 
-export * from "./successPage";
+export { BookingInfoPage } from "./bookingInfoPage";
+export { PersonalDataPage } from "./personalDataPage";
+export { ConfirmationPage } from "./confirmationPage";
+export { SuccessPage } from "./successPage";

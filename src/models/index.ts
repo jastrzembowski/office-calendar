@@ -1,3 +1,5 @@
-export * from "./days";
-export * from "./user";
-export * from "./visit";
+export type { Day, Slot } from "./days";
+export { SlotStatus } from "./days";
+export type { User } from "./user";
+export { VisitType } from "./user";
+export type { BookVisitData, Visit, UserVisit } from "./visit";

@@ -1,1 +1,1 @@
-export * from "./InfoForm";
+export { InfoForm } from "./InfoForm";

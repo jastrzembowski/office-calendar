@@ -1,1 +1,1 @@
-export * from "./RangePicker";
+export { RangePicker } from "./RangePicker";

@@ -1,3 +1,5 @@
+"use client";
+
 import { SectionWrapper } from "../sectionWrapper";
 import { Slot, SlotStatus } from "@/models";
 

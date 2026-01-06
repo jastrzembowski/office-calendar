@@ -1,3 +1,3 @@
-export * from "./adminDashboard";   
-export * from "./rangePicker";
-export * from "./adminTable";
+export { AdminDashboard } from "./adminDashboard";
+export { RangePicker } from "./rangePicker";
+export { AdminTable } from "./adminTable";

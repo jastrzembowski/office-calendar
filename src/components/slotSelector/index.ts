@@ -1,1 +1,1 @@
-export * from "./SlotSelector";
+export { SlotSelector } from "./SlotSelector";

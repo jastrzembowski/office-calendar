@@ -1,1 +1,1 @@
-export * from "./AdminTable";
+export { AdminTable } from "./AdminTable";

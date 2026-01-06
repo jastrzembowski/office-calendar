@@ -1,1 +1,1 @@
-export * from "./Line";
+export { Line } from "./Line";

@@ -1,1 +1,1 @@
-export * from "./ServiceSelector";
+export { ServiceSelector } from "./ServiceSelector";
