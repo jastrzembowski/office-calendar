@@ -1,7 +1,5 @@
 import { MainPage } from "./MainPage";
 
-export default  function Home() {
-
-    <MainPage />
-  
+export default function Home() {
+  return <MainPage />;
 }
